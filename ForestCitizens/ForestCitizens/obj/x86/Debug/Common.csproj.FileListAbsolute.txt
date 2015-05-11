@@ -1,0 +1,120 @@
+C:\Users\Admin\Desktop\ForestCitizens\ForestCitizens\bin\Debug\citizens.txt
+C:\Users\Admin\Desktop\ForestCitizens\ForestCitizens\bin\Debug\Images\Block.png
+C:\Users\Admin\Desktop\ForestCitizens\ForestCitizens\bin\Debug\Images\Citizen.png
+C:\Users\Admin\Desktop\ForestCitizens\ForestCitizens\bin\Debug\Images\Life.png
+C:\Users\Admin\Desktop\ForestCitizens\ForestCitizens\bin\Debug\Images\Terrain.png
+C:\Users\Admin\Desktop\ForestCitizens\ForestCitizens\bin\Debug\Images\Trap.png
+C:\Users\Admin\Desktop\ForestCitizens\ForestCitizens\bin\Debug\map.txt
+C:\Users\Admin\Desktop\ForestCitizens\ForestCitizens\bin\Debug\TestMaps\map_original.txt
+C:\Users\Admin\Desktop\ForestCitizens\ForestCitizens\bin\Debug\TestMaps\map3.txt
+C:\Users\Admin\Desktop\ForestCitizens\ForestCitizens\bin\Debug\TestMaps\map2.txt
+C:\Users\Admin\Desktop\ForestCitizens\ForestCitizens\bin\Debug\TestMaps\map1.txt
+C:\Users\Admin\Desktop\ForestCitizens\ForestCitizens\bin\Debug\ForestCitizens.exe
+C:\Users\Admin\Desktop\ForestCitizens\ForestCitizens\bin\Debug\ForestCitizens.pdb
+C:\Users\Admin\Desktop\ForestCitizens\ForestCitizens\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Admin\Desktop\ForestCitizens\ForestCitizens\bin\Debug\nunit.framework.dll
+C:\Users\Admin\Desktop\ForestCitizens\ForestCitizens\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Admin\Desktop\ForestCitizens\ForestCitizens\bin\Debug\nunit.framework.xml
+C:\Users\Admin\Desktop\ForestCitizens\ForestCitizens\obj\x86\Debug\ForestCitizens.exe
+C:\Users\Admin\Desktop\ForestCitizens\ForestCitizens\obj\x86\Debug\ForestCitizens.pdb
+C:\Users\Admin\Desktop\ForestCitizens\ForestCitizens\obj\x86\Debug\Common.csprojResolveAssemblyReference.cache
+C:\Users\fakefeik\Desktop\ForestCitizens\ForestCitizens\bin\Debug\citizens.txt
+C:\Users\fakefeik\Desktop\ForestCitizens\ForestCitizens\bin\Debug\Images\Block.png
+C:\Users\fakefeik\Desktop\ForestCitizens\ForestCitizens\bin\Debug\Images\Citizen.png
+C:\Users\fakefeik\Desktop\ForestCitizens\ForestCitizens\bin\Debug\Images\Life.png
+C:\Users\fakefeik\Desktop\ForestCitizens\ForestCitizens\bin\Debug\Images\Terrain.png
+C:\Users\fakefeik\Desktop\ForestCitizens\ForestCitizens\bin\Debug\Images\Trap.png
+C:\Users\fakefeik\Desktop\ForestCitizens\ForestCitizens\bin\Debug\map.txt
+C:\Users\fakefeik\Desktop\ForestCitizens\ForestCitizens\bin\Debug\TestMaps\map_original.txt
+C:\Users\fakefeik\Desktop\ForestCitizens\ForestCitizens\bin\Debug\TestMaps\map3.txt
+C:\Users\fakefeik\Desktop\ForestCitizens\ForestCitizens\bin\Debug\TestMaps\map2.txt
+C:\Users\fakefeik\Desktop\ForestCitizens\ForestCitizens\bin\Debug\TestMaps\map1.txt
+C:\Users\fakefeik\Desktop\ForestCitizens\ForestCitizens\bin\Debug\ForestCitizens.exe
+C:\Users\fakefeik\Desktop\ForestCitizens\ForestCitizens\bin\Debug\ForestCitizens.pdb
+C:\Users\fakefeik\Desktop\ForestCitizens\ForestCitizens\bin\Debug\Newtonsoft.Json.dll
+C:\Users\fakefeik\Desktop\ForestCitizens\ForestCitizens\bin\Debug\nunit.framework.dll
+C:\Users\fakefeik\Desktop\ForestCitizens\ForestCitizens\bin\Debug\Newtonsoft.Json.xml
+C:\Users\fakefeik\Desktop\ForestCitizens\ForestCitizens\bin\Debug\nunit.framework.xml
+C:\Users\fakefeik\Desktop\ForestCitizens\ForestCitizens\obj\x86\Debug\Common.csprojResolveAssemblyReference.cache
+C:\Users\fakefeik\Desktop\ForestCitizens\ForestCitizens\obj\x86\Debug\ForestCitizens.exe
+C:\Users\fakefeik\Desktop\ForestCitizens\ForestCitizens\obj\x86\Debug\ForestCitizens.pdb
+D:\Documents\Temp\ForestCitizens\ForestCitizens\bin\Debug\citizens.txt
+D:\Documents\Temp\ForestCitizens\ForestCitizens\bin\Debug\Images\Block.png
+D:\Documents\Temp\ForestCitizens\ForestCitizens\bin\Debug\Images\Citizen.png
+D:\Documents\Temp\ForestCitizens\ForestCitizens\bin\Debug\Images\Life.png
+D:\Documents\Temp\ForestCitizens\ForestCitizens\bin\Debug\Images\Terrain.png
+D:\Documents\Temp\ForestCitizens\ForestCitizens\bin\Debug\Images\Trap.png
+D:\Documents\Temp\ForestCitizens\ForestCitizens\bin\Debug\map.txt
+D:\Documents\Temp\ForestCitizens\ForestCitizens\bin\Debug\TestMaps\map_original.txt
+D:\Documents\Temp\ForestCitizens\ForestCitizens\bin\Debug\TestMaps\map3.txt
+D:\Documents\Temp\ForestCitizens\ForestCitizens\bin\Debug\TestMaps\map2.txt
+D:\Documents\Temp\ForestCitizens\ForestCitizens\bin\Debug\TestMaps\map1.txt
+D:\Documents\Temp\ForestCitizens\ForestCitizens\bin\Debug\ForestCitizens.exe
+D:\Documents\Temp\ForestCitizens\ForestCitizens\bin\Debug\ForestCitizens.pdb
+D:\Documents\Temp\ForestCitizens\ForestCitizens\bin\Debug\Newtonsoft.Json.dll
+D:\Documents\Temp\ForestCitizens\ForestCitizens\bin\Debug\nunit.framework.dll
+D:\Documents\Temp\ForestCitizens\ForestCitizens\bin\Debug\Newtonsoft.Json.xml
+D:\Documents\Temp\ForestCitizens\ForestCitizens\bin\Debug\nunit.framework.xml
+D:\Documents\Temp\ForestCitizens\ForestCitizens\obj\x86\Debug\Common.csprojResolveAssemblyReference.cache
+D:\Documents\Temp\ForestCitizens\ForestCitizens\obj\x86\Debug\ForestCitizens.exe
+D:\Documents\Temp\ForestCitizens\ForestCitizens\obj\x86\Debug\ForestCitizens.pdb
+C:\Documents\Temp\ForestCitizens\ForestCitizens\bin\Debug\citizens.txt
+C:\Documents\Temp\ForestCitizens\ForestCitizens\bin\Debug\Images\Block.png
+C:\Documents\Temp\ForestCitizens\ForestCitizens\bin\Debug\Images\Citizen.png
+C:\Documents\Temp\ForestCitizens\ForestCitizens\bin\Debug\Images\Life.png
+C:\Documents\Temp\ForestCitizens\ForestCitizens\bin\Debug\Images\Terrain.png
+C:\Documents\Temp\ForestCitizens\ForestCitizens\bin\Debug\Images\Trap.png
+C:\Documents\Temp\ForestCitizens\ForestCitizens\bin\Debug\map.txt
+C:\Documents\Temp\ForestCitizens\ForestCitizens\bin\Debug\TestMaps\map_original.txt
+C:\Documents\Temp\ForestCitizens\ForestCitizens\bin\Debug\TestMaps\map3.txt
+C:\Documents\Temp\ForestCitizens\ForestCitizens\bin\Debug\TestMaps\map2.txt
+C:\Documents\Temp\ForestCitizens\ForestCitizens\bin\Debug\TestMaps\map1.txt
+C:\Documents\Temp\ForestCitizens\ForestCitizens\bin\Debug\ForestCitizens.exe
+C:\Documents\Temp\ForestCitizens\ForestCitizens\bin\Debug\ForestCitizens.pdb
+C:\Documents\Temp\ForestCitizens\ForestCitizens\bin\Debug\Newtonsoft.Json.dll
+C:\Documents\Temp\ForestCitizens\ForestCitizens\bin\Debug\nunit.framework.dll
+C:\Documents\Temp\ForestCitizens\ForestCitizens\bin\Debug\Newtonsoft.Json.xml
+C:\Documents\Temp\ForestCitizens\ForestCitizens\bin\Debug\nunit.framework.xml
+C:\Documents\Temp\ForestCitizens\ForestCitizens\obj\x86\Debug\Common.csprojResolveAssemblyReference.cache
+C:\Documents\Temp\ForestCitizens\ForestCitizens\obj\x86\Debug\ForestCitizens.exe
+C:\Documents\Temp\ForestCitizens\ForestCitizens\obj\x86\Debug\ForestCitizens.pdb
+C:\Documents\Temp\ForestCitizens — копия\ForestCitizens\obj\x86\Debug\ForestCitizens.exe
+C:\Documents\Temp\ForestCitizens — копия\ForestCitizens\obj\x86\Debug\ForestCitizens.pdb
+C:\Documents\Temp\ForestCitizens — копия\ForestCitizens\bin\Debug\citizens.txt
+C:\Documents\Temp\ForestCitizens — копия\ForestCitizens\bin\Debug\Images\Block.png
+C:\Documents\Temp\ForestCitizens — копия\ForestCitizens\bin\Debug\Images\Citizen.png
+C:\Documents\Temp\ForestCitizens — копия\ForestCitizens\bin\Debug\Images\Life.png
+C:\Documents\Temp\ForestCitizens — копия\ForestCitizens\bin\Debug\Images\Terrain.png
+C:\Documents\Temp\ForestCitizens — копия\ForestCitizens\bin\Debug\Images\Trap.png
+C:\Documents\Temp\ForestCitizens — копия\ForestCitizens\bin\Debug\map.txt
+C:\Documents\Temp\ForestCitizens — копия\ForestCitizens\bin\Debug\TestMaps\map_original.txt
+C:\Documents\Temp\ForestCitizens — копия\ForestCitizens\bin\Debug\TestMaps\map3.txt
+C:\Documents\Temp\ForestCitizens — копия\ForestCitizens\bin\Debug\TestMaps\map2.txt
+C:\Documents\Temp\ForestCitizens — копия\ForestCitizens\bin\Debug\TestMaps\map1.txt
+C:\Documents\Temp\ForestCitizens — копия\ForestCitizens\bin\Debug\ForestCitizens.exe
+C:\Documents\Temp\ForestCitizens — копия\ForestCitizens\bin\Debug\ForestCitizens.pdb
+C:\Documents\Temp\ForestCitizens — копия\ForestCitizens\bin\Debug\Newtonsoft.Json.dll
+C:\Documents\Temp\ForestCitizens — копия\ForestCitizens\bin\Debug\nunit.framework.dll
+C:\Documents\Temp\ForestCitizens — копия\ForestCitizens\bin\Debug\Newtonsoft.Json.xml
+C:\Documents\Temp\ForestCitizens — копия\ForestCitizens\bin\Debug\nunit.framework.xml
+C:\Documents\Temp\ForestCitizens — копия\ForestCitizens\obj\x86\Debug\Common.csprojResolveAssemblyReference.cache
+C:\Users\fakefeik\Desktop\ForestVisualizer\ForestCitizens\ForestCitizens\obj\x86\Debug\ForestCitizens.exe
+C:\Users\fakefeik\Desktop\ForestVisualizer\ForestCitizens\ForestCitizens\obj\x86\Debug\ForestCitizens.pdb
+C:\Users\fakefeik\Desktop\ForestVisualizer\ForestCitizens\ForestCitizens\bin\Debug\citizens.txt
+C:\Users\fakefeik\Desktop\ForestVisualizer\ForestCitizens\ForestCitizens\bin\Debug\Images\Block.png
+C:\Users\fakefeik\Desktop\ForestVisualizer\ForestCitizens\ForestCitizens\bin\Debug\Images\Citizen.png
+C:\Users\fakefeik\Desktop\ForestVisualizer\ForestCitizens\ForestCitizens\bin\Debug\Images\Life.png
+C:\Users\fakefeik\Desktop\ForestVisualizer\ForestCitizens\ForestCitizens\bin\Debug\Images\Terrain.png
+C:\Users\fakefeik\Desktop\ForestVisualizer\ForestCitizens\ForestCitizens\bin\Debug\Images\Trap.png
+C:\Users\fakefeik\Desktop\ForestVisualizer\ForestCitizens\ForestCitizens\bin\Debug\map.txt
+C:\Users\fakefeik\Desktop\ForestVisualizer\ForestCitizens\ForestCitizens\bin\Debug\TestMaps\map_original.txt
+C:\Users\fakefeik\Desktop\ForestVisualizer\ForestCitizens\ForestCitizens\bin\Debug\TestMaps\map3.txt
+C:\Users\fakefeik\Desktop\ForestVisualizer\ForestCitizens\ForestCitizens\bin\Debug\TestMaps\map2.txt
+C:\Users\fakefeik\Desktop\ForestVisualizer\ForestCitizens\ForestCitizens\bin\Debug\TestMaps\map1.txt
+C:\Users\fakefeik\Desktop\ForestVisualizer\ForestCitizens\ForestCitizens\bin\Debug\ForestCitizens.exe
+C:\Users\fakefeik\Desktop\ForestVisualizer\ForestCitizens\ForestCitizens\bin\Debug\ForestCitizens.pdb
+C:\Users\fakefeik\Desktop\ForestVisualizer\ForestCitizens\ForestCitizens\bin\Debug\Newtonsoft.Json.dll
+C:\Users\fakefeik\Desktop\ForestVisualizer\ForestCitizens\ForestCitizens\bin\Debug\nunit.framework.dll
+C:\Users\fakefeik\Desktop\ForestVisualizer\ForestCitizens\ForestCitizens\bin\Debug\Newtonsoft.Json.xml
+C:\Users\fakefeik\Desktop\ForestVisualizer\ForestCitizens\ForestCitizens\bin\Debug\nunit.framework.xml
+C:\Users\fakefeik\Desktop\ForestVisualizer\ForestCitizens\ForestCitizens\obj\x86\Debug\Common.csprojResolveAssemblyReference.cache
