@@ -4,15 +4,15 @@ namespace ForestSolver
 {
     public class Point
     {
-        public readonly int x;
-        public readonly int y;
+        public readonly int X;
+        public readonly int Y;
         public Point(int x, int y)
         {
-            this.x = x;
-            this.y = y;
+            X = x;
+            Y = y;
         }
 
-        static public ForestSolver.Point ConvertFromNetPoint(ForestSolverPackages.Point p)
+        static public Point ConvertFromNetPoint(ForestSolverPackages.Point p)
         {
             var t = new Point(p.X, p.Y);
             return t;
@@ -20,22 +20,17 @@ namespace ForestSolver
 
         public Point Add(Point other)
         {
-            return new Point(this.x + other.x, this.y + other.y); 
+            return new Point(this.X + other.X, this.Y + other.Y); 
         }
 
         public Point Add(DeltaPoint other)
         {
-            return new Point(this.x + other.deltax, this.y + other.deltay);
+            return new Point(X + other.Deltax, Y + other.Deltay);
         }
 
         public Point Reverse()
         {
-            return new Point(y, x);
-        }
-
-        public Point Sub(Point other)
-        {
-            return new Point(this.x - other.x, this.y - other.y);
+            return new Point(Y, X);
         }
 
         public override bool Equals(object obj)
@@ -43,7 +38,7 @@ namespace ForestSolver
             if (obj.GetType() != typeof(Point))
                 throw new InvalidCastException();
             var o = (Point) obj;
-            return this.x == o.x && this.y == o.y;
+            return X == o.X && Y == o.Y;
         }
 
         static public bool operator ==(Point one, Point two)
@@ -58,24 +53,24 @@ namespace ForestSolver
 
         public override string ToString()
         {
-            return String.Format("({0}, {1})", x, y);
+            return String.Format("({0}, {1})", X, Y);
         }
 
         public ForestSolverPackages.Point ConvertToNetPoint()
         {
-            return new ForestSolverPackages.Point(x, y);
+            return new ForestSolverPackages.Point(X, Y);
         }
     }
 
     public class DeltaPoint
     {
-        public readonly int deltax;
-        public readonly int deltay;
+        public readonly int Deltax;
+        public readonly int Deltay;
 
         private DeltaPoint(int x, int y)
         {
-            deltax = x;
-            deltay = y;
+            Deltax = x;
+            Deltay = y;
         }
 
         public static DeltaPoint GoLeft()
@@ -100,18 +95,18 @@ namespace ForestSolver
 
         public DeltaPoint Reverse()
         {
-            return new DeltaPoint(-this.deltax, -this.deltay);
+            return new DeltaPoint(-Deltax, -Deltay);
         }
 
         public override bool Equals(object obj)
         {
             var oth = (DeltaPoint) obj;
-            return deltax == oth.deltax && deltay == oth.deltay;
+            return Deltax == oth.Deltax && Deltay == oth.Deltay;
         }
 
         public override int GetHashCode()
         {
-            return deltax*2 + deltay*3;
+            return Deltax*2 + Deltay*3;
         }
     }
 }

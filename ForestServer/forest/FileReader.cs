@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ForestSolver
 {
-    public class FileReader
+    static public class FileReader
     {
 
         static public ICell[,] GetField(string source)
@@ -31,7 +28,7 @@ namespace ForestSolver
             return answer;
         }
 
-        public static string[] ReadFromFile(string fileName)
+        private static string[] ReadFromFile(string fileName)
         {
             return System.IO.File.ReadAllLines(fileName);
         }
@@ -42,7 +39,7 @@ namespace ForestSolver
             var paticipants = new List<Tuple<Point, Point>>();
             foreach (var paticipant in paticipantsLines)
             {
-                var t = paticipant.Split().Select(x => int.Parse(x)).ToArray();
+                var t = paticipant.Split().Select(int.Parse).ToArray();
                 paticipants.Add(Tuple.Create(new Point(t[0], t[1]), new Point(t[2], t[3])));
             }
             return paticipants;

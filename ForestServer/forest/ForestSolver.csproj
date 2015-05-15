@@ -51,7 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BSon.cs" />
+    <Compile Include="JSon.cs" />
     <Compile Include="Cells\ICell.cs" />
     <Compile Include="Cells\Life.cs" />
     <Compile Include="Cells\Path.cs" />

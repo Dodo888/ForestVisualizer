@@ -1,36 +1,37 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography;
 
 namespace ForestSolver
 {
     public class Forest
     {
-        public Dictionary<ForestKeeper, Point> keepers;
-        public ICell[,] Field;
-        public int fogOfWar = 0;
-        public Forest(ICell[,] field)
+        public readonly List<ForestKeeper> Keepers;
+        public readonly ICell[,] Field;
+        public readonly int FogOfWar;
+
+        public Forest(ICell[,] field, int fogOfWar)
         {
             Field = field;
-            keepers = new Dictionary<ForestKeeper, Point>();
+            FogOfWar = fogOfWar;
+            Keepers = new List<ForestKeeper>();
         }
 
         public bool Move(ForestKeeper keeper, DeltaPoint deltas)
         {
-//            if (keeper.position == keepers[keeper])
-//                throw new Exception("done!");
-            var newPosition = keeper.position.Add(deltas);
-            var canMove = Field[newPosition.x, newPosition.y].MakeTurn(keeper, newPosition, ref Field[newPosition.x, newPosition.y]);
-            if (keeper.hp <= 0)
-                keepers.Remove(keeper);
+            var newPosition = keeper.Position.Add(deltas);
+            foreach (var keep in Keepers)
+                if (newPosition == keep.Position && keeper.Id != keep.Id)
+                    return false;
+            var canMove = Field[newPosition.X, newPosition.Y].MakeTurn(keeper, newPosition, ref Field[newPosition.X, newPosition.Y]);
+            if (keeper.Hp <= 0)
+                Keepers.Remove(keeper);
             return canMove;
         }
 
         public ForestKeeper MakeNewKeeper(string name, int id, Point position, Point destination)
         {
-            var keeper = new ForestKeeper(name, new Point(position.y - 1, position.x), 2, id);
-            keepers.Add(keeper, new Point(destination.y, destination.x));
+            var keeper = new ForestKeeper(name, new Point(position.Y - 1, position.X), new Point(destination.Y, destination.X), 2, id);
+            Keepers.Add(keeper);
             if (!Move(keeper, DeltaPoint.GoRight()))
                 throw new Exception("нельзя сюда поставить");
             return keeper;

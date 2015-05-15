@@ -69,7 +69,7 @@ namespace Client
                 { DeltaPoint.GoLeft(), 3 }
             };
             var move = new Move {Direction = directoins[point]};
-            log.InfoFormat("{2} position {0} {1}", keeper.position.x, keeper.position.y, name);
+            log.InfoFormat("{2} position {0} {1}", keeper.Position.X, keeper.Position.Y, name);
             log.InfoFormat("{1} tryed to {0}", move.Direction, name);
             JSon.Write(move, stream);
             var resultInfo = JSon.Read<MoveResultInfo>(stream);

@@ -56,17 +56,25 @@
   <ItemGroup>
     <Compile Include="ForestTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServerWorkerTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\forest\ForestSolver.csproj">
       <Project>{19b72fcf-c8e1-47a8-a4ea-9571b8514662}</Project>
       <Name>ForestSolver</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Server\Server.csproj">
+      <Project>{03655108-20c6-4eb6-9b84-6b2516762090}</Project>
+      <Name>Server</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="input.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="test1.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

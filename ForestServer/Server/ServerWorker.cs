@@ -7,7 +7,7 @@ using Point = ForestSolver.Point;
 
 namespace Server
 {
-    class ServerWorker
+    public class ServerWorker
     {
         public readonly Forest Forest;
         private readonly List<Tuple<Point, Point>> patFirstPos;
@@ -55,7 +55,8 @@ namespace Server
                 {3, DeltaPoint.GoLeft}
             };
             var canMove = Forest.Move(keeper, dicts[direction]());
-            if (keeper.position == new Point(Forest.keepers[keeper].x, Forest.keepers[keeper].y))
+            var dest = keeper.Destination;
+            if (keeper.Position == new Point(dest.X, dest.Y))
             {
                 IsOver = true;
             }
@@ -64,20 +65,24 @@ namespace Server
 
         public int[,] GetVisibleMap(ForestKeeper keeper)
         {
-            var visibleMap = new int[Forest.fogOfWar * 2 + 1, Forest.fogOfWar * 2 + 1];
+            var visibleMap = new int[Forest.FogOfWar * 2 + 1, Forest.FogOfWar * 2 + 1];
             for (int i = 0; i < visibleMap.GetLength(0); i++)
                 for (int j = 0; j < visibleMap.GetLength(1); j++)
                 {
-                    if (keeper.position.x - Forest.fogOfWar + i < 0 ||
-                        keeper.position.x - Forest.fogOfWar + i >= Forest.Field.GetLength(0) ||
-                        keeper.position.y - Forest.fogOfWar + j < 0 ||
-                        keeper.position.y - Forest.fogOfWar + j >= Forest.Field.GetLength(1))
+                    if (keeper.Position.X - Forest.FogOfWar + i < 0 ||
+                        keeper.Position.X - Forest.FogOfWar + i >= Forest.Field.GetLength(0) ||
+                        keeper.Position.Y - Forest.FogOfWar + j < 0 ||
+                        keeper.Position.Y - Forest.FogOfWar + j >= Forest.Field.GetLength(1))
                         visibleMap[i, j] = 0;
                     else
                         visibleMap[i, j] = cellsNum[
                             Forest.Field[
-                                i + keeper.position.x - Forest.fogOfWar,
-                                j + keeper.position.y - Forest.fogOfWar].GetType()];
+                                i + keeper.Position.X - Forest.FogOfWar,
+                                j + keeper.Position.Y - Forest.FogOfWar].GetType()];
+                    foreach (var keep in Forest.Keepers)
+                        if (keep.Position ==
+                            new Point(i + keeper.Position.X - Forest.FogOfWar, j + keeper.Position.Y - Forest.FogOfWar))
+                            visibleMap[i, j] = 5;
                 }
             return visibleMap;
         }

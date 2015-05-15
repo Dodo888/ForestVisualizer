@@ -1,1 +1,2 @@
 C:\Users\smirs\Documents\GitHub\ForestVisualizer\ForestVisualizer\bin\Debug\ForestVisualizer.exe.config
+C:\Users\Lenovo\Desktop\ForestVisualizer\ForestVisualizer\bin\Debug\ForestVisualizer.exe.config

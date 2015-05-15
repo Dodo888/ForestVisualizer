@@ -7,8 +7,8 @@ namespace Visualiser
 {
     class VisualiserWorker
     {
-        private Dictionary<int, Func<ICell>> cellsNum;
-        private IVisualizer visualizer;
+        private readonly Dictionary<int, Func<ICell>> cellsNum;
+        private readonly IVisualizer visualizer;
 
         public VisualiserWorker(IVisualizer visualizer)
         {
@@ -30,7 +30,7 @@ namespace Visualiser
                 for (int j = 0; j < map.GetLength(1); j++)
                     field[i,j] = cellsNum[map[i, j]]();
             }
-            var forest = new Forest(field);
+            var forest = new Forest(field, 0);
             foreach (var player in players)
             {
                 forest.MakeNewKeeper(player.Nick, (char)player.Id, ForestSolver.Point.ConvertFromNetPoint(player.StartPosition).Reverse(), ForestSolver.Point.ConvertFromNetPoint(player.Target).Reverse());

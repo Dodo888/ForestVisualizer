@@ -1,14 +1,13 @@
 ﻿using System.Xml.Serialization;
-using ForestSolverPackages;
 
 namespace Server
 {
     [XmlRoot(Namespace = "http://localhost", IsNullable = false)]
     public class Config
     {
-        public string filename;
+        public string Filename;
         [XmlArrayAttribute("players")]
-        public ConfigPoints[] points;
+        public ConfigPoints[] Points;
     }
 
     public class ConfigPoints
