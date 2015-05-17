@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Net.Sockets;
 using ForestSolver;
@@ -54,7 +55,15 @@ namespace Client
         private void RunGame()
         {
             while (!isGameOver)
-                clientWorker.Move(TryMove);
+                try
+                {
+                    clientWorker.Move(TryMove);
+                }
+                catch (Exception)
+                {
+                    server.Close();
+                    break;
+                }
         }
 
 

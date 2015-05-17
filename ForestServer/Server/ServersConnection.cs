@@ -83,14 +83,20 @@ namespace Server
             while (paticipantsCount < serverWorker.MaxPaticipants || visualizer == null)
             {
                 Hello packet;
-                TcpClient client = WaitClientConnect(out packet);
-                if (packet.IsVisualizator)
-                    visualizer = client;
-                else
+                try
                 {
-                    if (paticipantsCount < serverWorker.MaxPaticipants)
-                        clients.Add(client, packet.Name);
-                    paticipantsCount++;
+                    TcpClient client = WaitClientConnect(out packet);
+                    if (packet.IsVisualizator)
+                        visualizer = client;
+                    else
+                    {
+                        if (paticipantsCount < serverWorker.MaxPaticipants)
+                            clients.Add(client, packet.Name);
+                        paticipantsCount++;
+                    }
+                }
+                catch (Exception)
+                {
                 }
             }
         }
@@ -113,9 +119,7 @@ namespace Server
                 if (ans.AnswerCode == 0)
                 {
                     foreach (var playerBot in players)
-                    {
                         RunOneStep(playerBot);
-                    }
                 }
                 var lastMoveInfo = CreateLastMoveInfo();
                 JSon.Write(lastMoveInfo, visStream);
@@ -148,22 +152,32 @@ namespace Server
 
         private void RunOneStep(PlayerBot player)
         {
-            Log.InfoFormat("{0} position {1} {2}", player.Keeper.Name, player.Keeper.Position.X, player.Keeper.Position.Y);
-            var move = JSon.Read<Move>(player.Client.GetStream());
-            Log.InfoFormat("{0} move {1}", player.Keeper.Name, move.Direction);
-            var res = 1;
-            if (serverWorker.Move(move.Direction, player.Keeper))
-                res = 0;
-            if (serverWorker.IsOver)
-                res = 2;
-            var visibleMap = serverWorker.GetVisibleMap(player.Keeper);
-            var result = new MoveResultInfo
+            try
             {
-                Result = res,
-                VisibleMap = visibleMap
-            };
-            JSon.Write(result, player.Client.GetStream());
-            Log.InfoFormat("{0} can move {1}", player.Keeper.Name, result.Result == 0);
+
+                Log.InfoFormat("{0} position {1} {2}", player.Keeper.Name, player.Keeper.Position.X,
+                    player.Keeper.Position.Y);
+                var move = JSon.Read<Move>(player.Client.GetStream());
+                Log.InfoFormat("{0} move {1}", player.Keeper.Name, move.Direction);
+                var res = 1;
+                if (serverWorker.Move(move.Direction, player.Keeper))
+                    res = 0;
+                if (serverWorker.IsOver)
+                    res = 2;
+                var visibleMap = serverWorker.GetVisibleMap(player.Keeper);
+                var result = new MoveResultInfo
+                {
+                    Result = res,
+                    VisibleMap = visibleMap
+                };
+                JSon.Write(result, player.Client.GetStream());
+                Log.InfoFormat("{0} can move {1}", player.Keeper.Name, result.Result == 0);
+            }
+            catch (Exception)
+            {
+                players.Remove(player);
+                player.Client.Close();
+            }
         }
 
         private Tuple<ClientInfo, ForestKeeper> CreateClientInfo(string name)

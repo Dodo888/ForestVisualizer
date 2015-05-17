@@ -17,8 +17,9 @@ namespace ForestSolver
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
+//                Console.WriteLine(e);
                 writer.Close();
+                throw;
             }
         }
 
@@ -33,8 +34,9 @@ namespace ForestSolver
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
+//                Console.WriteLine(e);
                 reader.Close();
+                throw;
             }
             return obj;
         }
