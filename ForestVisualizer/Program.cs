@@ -58,7 +58,9 @@ namespace ForestVisualizer
         private int tickCount = 0;
 
         private IPEndPoint ipEndPoint;    //Конечная точка (IP и порт)
-        private Socket clientSocket;  
+        private Socket clientSocket;
+        private Stream stream;
+        private Serializer serializer;
 
         public FormForestVisualizer(char[,] map, Player[] players, string[] all, int fog)
         {
@@ -76,11 +78,13 @@ namespace ForestVisualizer
 
             this.ipEndPoint = new IPEndPoint(IPAddress.Loopback, 20000);
             this.clientSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            this.serializer = new Serializer();
             this.clientSocket.Connect(ipEndPoint);
+            this.stream = new NetworkStream(clientSocket, FileAccess.ReadWrite);
 
             Hello hello = new Hello() { IsVisualizator = true, Name = "PROEKTOR" };
-            string output = JsonConvert.SerializeObject(hello);
-            this.clientSocket.Send(Encoding.Default.GetBytes(output));
+            Serializer.Write<Hello>(hello, stream);
+
             this.gameStarted = false;
             this.winner = "";
 
@@ -279,7 +283,7 @@ namespace ForestVisualizer
         {
             graphics.DrawString(winner + " победил",
                 new Font("Impact", (int)Math.Min(scaleW, scaleH), FontStyle.Bold), Brushes.Red,
-                    new RectangleF(0, 0, Width, Height), StringFormat.GenericDefault);
+                    new RectangleF(0, 0, Width, Height), format);
         }
 
         private void MakeMove(Tuple<int, Point, int> move)
@@ -300,19 +304,22 @@ namespace ForestVisualizer
         private void RecieveInfo()
         {
             byte[] data = new byte[1024];
-            clientSocket.Receive(data);
+            //clientSocket.Receive(data);
             if (!gameStarted)
             {
-                WorldInfo world = JsonConvert.DeserializeObject<WorldInfo>(Encoding.Default.GetString(data));
-                this.players = world.Players;
-                this.map = world.Map;
-                gameStarted = true;
-                winner = "";
+                WorldInfo world = Serializer.Read<WorldInfo>(stream);
+                if (world != null)
+                {
+                    this.players = world.Players;
+                    this.map = world.Map;
+                    gameStarted = true;
+                    winner = "";
+                }
             }
             else
             {
                 string loserName = "";
-                LastMoveInfo move = JsonConvert.DeserializeObject<LastMoveInfo>(Encoding.Default.GetString(data));
+                LastMoveInfo move = Serializer.Read<LastMoveInfo>(stream);
                 foreach (var cellChange in move.ChangedCells)
                     ChangeCell(cellChange);
                 foreach (var positionChange in move.PlayersChangedPosition)
@@ -344,6 +351,8 @@ namespace ForestVisualizer
                                 position.Wins++;
                                 position.Points += points;
                             }
+                        Answer ans = new Answer() { AnswerCode = 0 };
+                        this.clientSocket.Send(serializer.Serialize(ans).ToArray());
                     }
                     else
                     {
@@ -356,11 +365,12 @@ namespace ForestVisualizer
                         }
                     }
                     gameStarted = false;
+                    clientSocket.Close();
+                    clientSocket.Connect(ipEndPoint);
+                    Hello hello = new Hello() { IsVisualizator = true, Name = "PROEKTOR" };
+                    Serializer.Write<Hello>(hello, stream);
                 }
             }
-            Answer ans = new Answer() { AnswerCode = 0 };
-            string output = JsonConvert.SerializeObject(ans);
-            this.clientSocket.Send(Encoding.Default.GetBytes(output));
         }
 
         void TimerTick(object sender, EventArgs args)
