@@ -12,71 +12,69 @@ namespace ForestSolver
     }
     public class CellWithColor
     {
-        public ICell cell { get; private set; }
-        public MyColour color { get; set; }
+        public ICell Cell { get; private set; }
+        public MyColour Color { get; set; }
 
         public CellWithColor(ICell cell, MyColour color)
         {
-            this.cell = cell;
-            this.color = color;
+            Cell = cell;
+            Color = color;
         }
 
     }
-    public class KeeperAI
+    public class KeeperAi
     {
-        private ExpansibleList<CellWithColor> field;
-        private ForestKeeper keeper;
-        private Point target;
+        private readonly ExpansibleList<CellWithColor> field;
+        private readonly ForestKeeper keeper;
+        private readonly Point target;
 
-        public KeeperAI(ForestKeeper keeper, Point target)
+        public KeeperAi(ForestKeeper keeper)
         {
             field = new ExpansibleList<CellWithColor>(() => new CellWithColor(new Path(), MyColour.White));
-            field[target.x, target.y] = new CellWithColor(new Path(), MyColour.White);
-            field[keeper.position.x, keeper.position.y] = new CellWithColor(new Path(), MyColour.White);
+            target = keeper.Destination;
+            field[target.X, target.Y] = new CellWithColor(new Path(), MyColour.White);
+            field[keeper.Position.X, keeper.Position.Y] = new CellWithColor(new Path(), MyColour.White);
             this.keeper = keeper;
-            this.target = target;
         }
 
         public void Go(Func<ForestKeeper, DeltaPoint , bool> tryMove)
         {
-            DeltaPoint deltaPoint;
-            Point position;
-            position = keeper.position;
-            deltaPoint = AlmostBFS();
+            Point position = keeper.Position;
+            DeltaPoint deltaPoint = BFS();
             if (!tryMove(keeper, deltaPoint))
             {
                 var newPosition = position.Add(deltaPoint);
-                field[newPosition.x, newPosition.y] = new CellWithColor(new Wall(), MyColour.White);
+                field[newPosition.X, newPosition.Y] = new CellWithColor(new Wall(), MyColour.White);
             }
         }
 
-        private DeltaPoint AlmostBFS()
+        private DeltaPoint BFS()
         {
             var queue = new Queue<Point>();
             queue.Enqueue(target);
 
-            for(int i = 0; i < field.rowCount; i++)
-                for (int j = 0; j < field.columnCount; j++)
-                    field[i,j].color = MyColour.White;
-            field[target.x, target.y].color = MyColour.Black;
+            for(int i = 0; i < field.RowCount; i++)
+                for (int j = 0; j < field.ColumnCount; j++)
+                    field[i,j].Color = MyColour.White;
+            field[target.X, target.Y].Color = MyColour.Black;
             var neighbours = new[] {DeltaPoint.GoDown(), DeltaPoint.GoLeft(), DeltaPoint.GoRight(), DeltaPoint.GoUp()};
             while (queue.Count() != 0)
             {
                 var position = queue.Dequeue();
-                for (int i = 0; i < neighbours.Length; i++)
+                foreach (var neighbour in neighbours)
                 {
-                    var newPosition = position.Add(neighbours[i]);
-                    if (newPosition.x < 0 || newPosition.y < 0)
+                    var newPosition = position.Add(neighbour);
+                    if (newPosition.X < 0 || newPosition.Y < 0)
                         continue;
-                    if (newPosition == keeper.position)
-                        return neighbours[i].Reverse();
-                    if (newPosition.x >= field.rowCount || newPosition.y >= field.columnCount)
-                        field[newPosition.x, newPosition.y] = new CellWithColor(new Path(), MyColour.White);
-                    if (field[newPosition.x, newPosition.y].color == MyColour.White &&
-                        field[newPosition.x, newPosition.y].cell.GetType() != typeof (Wall))
+                    if (newPosition == keeper.Position)
+                        return neighbour.Reverse();
+                    if (newPosition.X >= field.RowCount || newPosition.Y >= field.ColumnCount)
+                        field[newPosition.X, newPosition.Y] = new CellWithColor(new Path(), MyColour.White);
+                    if (field[newPosition.X, newPosition.Y].Color == MyColour.White &&
+                        field[newPosition.X, newPosition.Y].Cell.GetType() != typeof (Wall))
                     {
                         queue.Enqueue(newPosition);
-                        field[newPosition.x, newPosition.y].color = MyColour.Black;
+                        field[newPosition.X, newPosition.Y].Color = MyColour.Black;
                     }
                 }
             }
@@ -86,17 +84,17 @@ namespace ForestSolver
 
     public class ExpansibleList<T>
     {
-        private List<List<T>> arr;
-        private Func<T> defaultElement;
-        public int rowCount { get; private set; }
-        public int columnCount { get; private set; }
+        private readonly List<List<T>> arr;
+        private readonly Func<T> defaultElement;
+        public int RowCount { get; private set; }
+        public int ColumnCount { get; private set; }
 
         public ExpansibleList(Func<T> defaultElement)
         {
             this.defaultElement = defaultElement;
             arr = new List<List<T>>();
-            rowCount = 0;
-            columnCount = 0;
+            RowCount = 0;
+            ColumnCount = 0;
         }
 
         public T this[int i, int j]
@@ -105,27 +103,26 @@ namespace ForestSolver
             {
                 if (i < 0 || j < 0)
                     throw new IndexOutOfRangeException("the index is negative");
-                if (i >= rowCount || j >= columnCount)
+                if (i >= RowCount || j >= ColumnCount)
                     return defaultElement();
-//                    throw new IndexOutOfRangeException("the index is out of bounds");
                 return arr[i][j];
             }
             set
             {
                 if (i < 0 || j < 0)
                     throw new IndexOutOfRangeException("the index is negative");
-                while (rowCount <= i)
+                while (RowCount <= i)
                 {
                     arr.Add(new List<T>());
-                    rowCount++;
+                    RowCount++;
                 }
                 foreach (var row in arr)
-                    while (row.Count <= j || row.Count < columnCount)
+                    while (row.Count <= j || row.Count < ColumnCount)
                     {
                         row.Add(defaultElement());
                     }
-                if (columnCount <= j)
-                    columnCount = j + 1;
+                if (ColumnCount <= j)
+                    ColumnCount = j + 1;
                 arr[i][j] = value;
             }
         }

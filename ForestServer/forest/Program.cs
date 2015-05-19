@@ -3,18 +3,18 @@ using System.Threading;
 
 namespace ForestSolver
 {
-    class Program
+    static class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            string source = "input1.txt";
+            const string source = "input.txt";
             var map = FileReader.GetField(source);
-            var forest = new Forest(map);
+            var forest = new Forest(map, 0);
             var visualizer = new ConsoleBlackAndWhiteVisualizer();
             var keeper = forest.MakeNewKeeper("Thranduil", 'A', new Point(2, 1), new Point(3, 3));
-            var keeperAi = new KeeperAI(keeper, forest.keepers[keeper]);
+            var keeperAi = new KeeperAi(keeper);
             visualizer.DrawForest(forest);
-            while (keeper.position != forest.keepers[keeper])
+            while (keeper.Position != keeper.Destination)
             {
                 keeperAi.Go(forest.Move);
                 Thread.Sleep(1000);

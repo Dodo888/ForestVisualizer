@@ -1,7 +1,6 @@
 ﻿using System;
 using System.IO;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Bson;
 
 namespace ForestSolver
 {
@@ -18,8 +17,9 @@ namespace ForestSolver
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
+//                Console.WriteLine(e);
                 writer.Close();
+                throw;
             }
         }
 
@@ -34,8 +34,9 @@ namespace ForestSolver
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
+//                Console.WriteLine(e);
                 reader.Close();
+                throw;
             }
             return obj;
         }
