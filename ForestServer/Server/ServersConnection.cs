@@ -86,6 +86,8 @@ namespace Server
                 try
                 {
                     TcpClient client = WaitClientConnect(out packet);
+                    if (packet == null)
+                        continue;
                     if (packet.IsVisualizator)
                         visualizer = client;
                     else

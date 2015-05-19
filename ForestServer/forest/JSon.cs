@@ -39,6 +39,7 @@ namespace ForestSolver
             {
 //                Console.WriteLine(e);
                 reader.Close();
+                return null;
                 throw;
             }
             return obj;
