@@ -51,6 +51,7 @@ namespace ForestSolverPackages
         public bool GameOver;
         public Tuple<Point, int>[] ChangedCells;
         public Tuple<int, Point, int>[] PlayersChangedPosition; // <id, new position, new hp>
+        public int WinnerId;
     }
 
 

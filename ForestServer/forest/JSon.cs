@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Threading;
 using Newtonsoft.Json;
 
 namespace ForestSolver
@@ -23,10 +24,12 @@ namespace ForestSolver
             }
         }
 
-        static public T Read<T>(Stream stream) where T : class 
+        static public T Read<T>(Stream stream, int timeout = 2000) where T : class 
         {
             var serializer = new JsonSerializer();
-            var reader = new JsonTextReader(new StreamReader(stream));
+            var streamReader = new StreamReader(stream);
+            streamReader.BaseStream.ReadTimeout = timeout;
+            var reader = new JsonTextReader(streamReader);
             T obj = null;
             try
             {

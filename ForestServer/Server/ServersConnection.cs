@@ -73,7 +73,7 @@ namespace Server
         {
             var client = listener.AcceptTcpClient();
             NetworkStream stream = client.GetStream();
-            packet = JSon.Read<Hello>(stream);
+            packet = JSon.Read<Hello>(stream, 100000);
             return client;
         }
 
@@ -118,8 +118,15 @@ namespace Server
                 var ans = JSon.Read<Answer>(visStream);
                 if (ans.AnswerCode == 0)
                 {
-                    foreach (var playerBot in players)
+                    for (int i = 0; i < players.Count; i++)
+                    {
+                        var playerBot = players[i];
                         RunOneStep(playerBot);
+                    }
+                    if (players.Count == 0)
+                    {
+                        serverWorker.IsOver = true;
+                    }
                 }
                 var lastMoveInfo = CreateLastMoveInfo();
                 JSon.Write(lastMoveInfo, visStream);
@@ -145,7 +152,8 @@ namespace Server
             {
                 ChangedCells = changedCells,
                 GameOver = serverWorker.IsOver,
-                PlayersChangedPosition = changedPositions
+                PlayersChangedPosition = changedPositions,
+                WinnerId = serverWorker.winnerId
             };
             return lastMoveInfo;
         }
@@ -154,7 +162,6 @@ namespace Server
         {
             try
             {
-
                 Log.InfoFormat("{0} position {1} {2}", player.Keeper.Name, player.Keeper.Position.X,
                     player.Keeper.Position.Y);
                 var move = JSon.Read<Move>(player.Client.GetStream());
@@ -175,6 +182,7 @@ namespace Server
             }
             catch (Exception)
             {
+                Log.InfoFormat("{0} умер", player.Keeper.Name);
                 players.Remove(player);
                 player.Client.Close();
             }

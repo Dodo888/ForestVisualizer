@@ -15,6 +15,7 @@ namespace Server
         private int nextId;
         private readonly List<ForestKeeper> keepers;
         public bool IsOver;
+        public int winnerId;
         private readonly Dictionary<Type, int> cellsNum = new Dictionary<Type, int>
             {
                 {typeof (Path), 1},
@@ -31,6 +32,7 @@ namespace Server
             MaxPaticipants = patFirstPos.Count;
             keepers = new List<ForestKeeper>();
             IsOver = false;
+            winnerId = 0;
         }
 
         public Tuple<Player, ForestKeeper> AddClient(string name)
@@ -59,6 +61,8 @@ namespace Server
             if (keeper.Position == new Point(dest.X, dest.Y))
             {
                 IsOver = true;
+                winnerId = keeper.Id;
+                Console.WriteLine(winnerId);
             }
             return canMove;
         }
