@@ -28,7 +28,7 @@ namespace ForestSolver
         {
             var serializer = new JsonSerializer();
             var streamReader = new StreamReader(stream);
-            streamReader.BaseStream.ReadTimeout = timeout;
+            //streamReader.BaseStream.ReadTimeout = timeout;
             var reader = new JsonTextReader(streamReader);
             T obj = null;
             try

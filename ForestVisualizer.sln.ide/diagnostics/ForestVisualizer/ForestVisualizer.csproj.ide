@@ -1,0 +1,40 @@
+﻿<Project Format="0.0.0.3">
+  <Version>2015-05-20T04:08:07.3739461Z</Version>
+  <Binding>True</Binding>
+  <Diagnostic>
+    <Code>108</Code>
+    <Id>CS0108</Id>
+    <Severity>Warning</Severity>
+    <Message>'ForestVisualizer.FormForestVisualizer.Visible(System.Drawing.Point)' hides inherited member 'System.Windows.Forms.Control.Visible'. Use the new keyword if hiding was intended.</Message>
+    <MappedFile>C:\Users\213\Desktop\study\GitHub\ForestVisualizer\ForestVisualizer\Program.cs</MappedFile>
+    <MappedLine>148</MappedLine>
+    <MappedColumn>21</MappedColumn>
+    <OriginalFile>C:\Users\213\Desktop\study\GitHub\ForestVisualizer\ForestVisualizer\Program.cs</OriginalFile>
+    <OriginalLine>148</OriginalLine>
+    <OriginalColumn>21</OriginalColumn>
+  </Diagnostic>
+  <Diagnostic>
+    <Code>168</Code>
+    <Id>CS0168</Id>
+    <Severity>Warning</Severity>
+    <Message>The variable 'e' is declared but never used</Message>
+    <MappedFile>C:\Users\213\Desktop\study\GitHub\ForestVisualizer\ForestVisualizer\Serializer.cs</MappedFile>
+    <MappedLine>46</MappedLine>
+    <MappedColumn>29</MappedColumn>
+    <OriginalFile>C:\Users\213\Desktop\study\GitHub\ForestVisualizer\ForestVisualizer\Serializer.cs</OriginalFile>
+    <OriginalLine>46</OriginalLine>
+    <OriginalColumn>29</OriginalColumn>
+  </Diagnostic>
+  <Diagnostic>
+    <Code>168</Code>
+    <Id>CS0168</Id>
+    <Severity>Warning</Severity>
+    <Message>The variable 'e' is declared but never used</Message>
+    <MappedFile>C:\Users\213\Desktop\study\GitHub\ForestVisualizer\ForestVisualizer\Serializer.cs</MappedFile>
+    <MappedLine>65</MappedLine>
+    <MappedColumn>29</MappedColumn>
+    <OriginalFile>C:\Users\213\Desktop\study\GitHub\ForestVisualizer\ForestVisualizer\Serializer.cs</OriginalFile>
+    <OriginalLine>65</OriginalLine>
+    <OriginalColumn>29</OriginalColumn>
+  </Diagnostic>
+</Project>
