@@ -3,9 +3,6 @@ import random
 
 players = ['Gallyam', 'Nikita', 'Kirill', 'PoliMax', 'PoliMisha', 'VanyaLesha', 'Valera', 'easyBot']
 random.shuffle(players)
-game_count = [0, 0, 0, 0, 0, 0, 0, 0]
-played_with = [[], [], [], [], [], [], [], []]
-pairs = []
 waves = [[(0, 2), (4, 6), (1, 3), (5, 7)],
          [(0, 4), (2, 6), (1, 5), (3, 7)],
          [(0, 6), (2, 4), (1, 7), (3, 5)],
